@@ -87,6 +87,11 @@ function dodecaTriangleTiling(){
   tiles.buildGrid();
   polys = tiles.polys;
 }
+function hexaTriangleTiling(){
+  var tiles = new HexaTriangleTiling(70);
+  tiles.buildGrid();
+  polys = tiles.polys;
+}
 
 function chooseTiling() {
   switch (tilingTypeSelect.value()) {
@@ -113,6 +118,9 @@ function chooseTiling() {
       break;
     case "dodeca_triangle":
       dodecaTriangleTiling();
+      break;
+    case "hexa_triangle":
+      hexaTriangleTiling();
       break;
     default:
       dodecaTriangleTiling();
