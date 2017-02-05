@@ -1,3 +1,6 @@
+//Tryning to lay another out but couldn't:
+//the one at : https://upload.wikimedia.org/wikipedia/commons/a/a5/1-uniform_10.png
+//this just repeats HexagonalTiling behavior.
 function HexaTriangleTiling2(r) {
   this.r     = r;
   this.polys = [];
