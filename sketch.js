@@ -50,8 +50,12 @@ function hexTriangleSquareTiling() {
   polys = tiles.polys;
 }
 function squareOctagonTiling() {
-  console.log('squareOctagonTiling');
   var tiles = new SquareOctagonTiling(50);
+  tiles.buildGrid();
+  polys = tiles.polys;
+}
+function triangleSquareTiling() {
+  var tiles = new TriangleSquareTiling(50);
   tiles.buildGrid();
   polys = tiles.polys;
 }
@@ -98,8 +102,13 @@ function chooseTiling() {
       // dodecaHexSquareTiling();
       squareOctagonTiling();
       break;
+    case "triangle_square":
+      // dodecaHexSquareTiling();
+      triangleSquareTiling();
+      break;
     default:
-      squareOctagonTiling();
+      triangleSquareTiling();
+      // squareOctagonTiling();
       // hexTriangleSquareTiling();
       // dodecaHexSquareTiling();
       // squareTiling();
