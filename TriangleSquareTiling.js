@@ -1,16 +1,15 @@
 //Now this one
 function TriangleSquareTiling(r) {
-  this.r = r;
+  this.r     = r;
   this.polys = [];
   this.sides = 3;
-  this.beta = Math.PI/this.sides;
-  this.side = this.r* Math.sin(this.beta);
-  this.h3 = this.r* Math.cos(this.beta);
-  console.log("h3 : ",this.h3);
-  this.r4 = this.side/Math.sin(Math.PI/4);
-  this.h4 = this.r4*Math.cos(Math.PI/4);
-  this.h = 1*(this.h3+this.r+this.side);
-  this.w = 2*(this.h3+this.r+this.side);
+  this.beta  = Math.PI/this.sides;
+  this.side  = this.r* Math.sin(this.beta);
+  this.h3    = this.r* Math.cos(this.beta);
+  this.r4    = this.side/Math.sin(Math.PI/4);
+  this.h4    = this.r4*Math.cos(Math.PI/4);
+  this.h     = this.h3+this.r+this.side;
+  this.w     = 2*this.h;
 
 
   this.buildCell = function(x, y) {

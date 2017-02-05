@@ -1,14 +1,16 @@
 function HexaTriangleSquareTiling(r) {
-  this.r = r;
+  this.r     = r;
   this.polys = [];
   this.sides = 6;
-  this.beta = Math.PI/this.sides;
-  this.side = this.r* Math.sin(this.beta);
-  this.h6 = this.r* Math.cos(this.beta);
-  this.r3 = this.side/Math.sin(Math.PI/3);
-  this.r4 = this.side/Math.sin(Math.PI/4);
-  this.h3 = this.r3*Math.cos(Math.PI/3);
-  this.h4 = this.r4*Math.cos(Math.PI/4);
+  this.beta  = Math.PI/this.sides;
+  this.side  = this.r* Math.sin(this.beta);
+  this.h6    = this.r* Math.cos(this.beta);
+  this.r3    = this.side/Math.sin(Math.PI/3);
+  this.r4    = this.side/Math.sin(Math.PI/4);
+  this.h3    = this.r3*Math.cos(Math.PI/3);
+  this.h4    = this.r4*Math.cos(Math.PI/4);
+  this.h     = this.h6+this.h4;
+  this.w     = 2*(this.r +this.r3+this.h3+this.h4);
 
 
   this.buildCell = function(x, y) {
@@ -46,8 +48,8 @@ function HexaTriangleSquareTiling(r) {
   // http://www.redblobgames.com/grids/hexagons/
   this.buildGrid = function() {
 
-    var h = this.h6+this.h4;
-    var w =  2*(this.r +this.r3+this.h3+this.h4);
+    var h = this.h;
+    var w = this.w;
     var inc = h;
     // TODO: get dimensions from somewhere
     var row = 0;

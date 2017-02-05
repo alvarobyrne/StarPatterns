@@ -1,12 +1,14 @@
 function SquareOctagonTiling(r) {
-  this.r = r;
+  this.r     = r;
   this.polys = [];
   this.sides = 4;
-  this.beta = Math.PI/this.sides;
-  this.side = this.r* Math.sin(this.beta);
-  this.h4 = this.r* Math.cos(this.beta);
-  this.r8 = this.side/Math.sin(Math.PI/8);
-  this.h8 = this.r8*Math.cos(Math.PI/8);
+  this.beta  = Math.PI/this.sides;
+  this.side  = this.r* Math.sin(this.beta);
+  this.h4    = this.r* Math.cos(this.beta);
+  this.r8    = this.side/Math.sin(Math.PI/8);
+  this.h8    = this.r8*Math.cos(Math.PI/8);
+  this.h     = this.h8+this.h4;
+  this.w     = 2*(this.h8+this.h4);
 
 
   this.buildCell = function(x, y) {
@@ -25,8 +27,8 @@ function SquareOctagonTiling(r) {
   // http://www.redblobgames.com/grids/hexagons/
   this.buildGrid = function() {
 
-    var h = this.h8+this.h4;
-    var w =  2*(this.h8+this.h4);
+    var h = this.h;
+    var w = this.w;
     var inc = h;
     // TODO: get dimensions from somewhere
     var row = 0;

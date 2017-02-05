@@ -115,3 +115,18 @@ function chooseTiling() {
       break;
   }
 }
+function build_poly(x,y,r,sides,init_angle) {
+    p = new Polygon();
+    if(!init_angle)init_angle = 0;
+    // rotate 360 degrees around the clock in 60 degree increments
+    var inc = 2 * Math.PI / sides;
+    for (var index = 0; index < sides; index++) {
+      // angular to cartesian
+      var θ = (index * inc) - inc / 2+init_angle;
+      var vX = x + r * Math.cos(θ);
+      var vY = y + r * Math.sin(θ);
+      p.addVertex(vX, vY);
+    }
+    p.close();
+    return p;
+}
