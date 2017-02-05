@@ -7,8 +7,8 @@
 // var poly;
 var polys = [];
 
-var angle = 75;
-var delta = 10;
+var angle = 30;
+var delta = 0;
 
 var deltaSlider;
 var angleSlider;
@@ -82,6 +82,11 @@ function dodecaHexSquareTiling(){
   polys = tiles.polys;
 
 }
+function dodecaTriangleTiling(){
+  var tiles = new DodecaTriangleTiling(70);
+  tiles.buildGrid();
+  polys = tiles.polys;
+}
 
 function chooseTiling() {
   switch (tilingTypeSelect.value()) {
@@ -106,8 +111,12 @@ function chooseTiling() {
       // dodecaHexSquareTiling();
       triangleSquareTiling();
       break;
+    case "dodeca_triangle":
+      dodecaTriangleTiling();
+      break;
     default:
-      triangleSquareTiling();
+      dodecaTriangleTiling();
+      // triangleSquareTiling();
       // squareOctagonTiling();
       // hexTriangleSquareTiling();
       // dodecaHexSquareTiling();
@@ -116,7 +125,7 @@ function chooseTiling() {
   }
 }
 function build_poly(x,y,r,sides,init_angle) {
-    p = new Polygon();
+    var p = new Polygon();
     if(!init_angle)init_angle = 0;
     // rotate 360 degrees around the clock in 60 degree increments
     var inc = 2 * Math.PI / sides;
