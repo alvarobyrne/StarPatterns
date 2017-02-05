@@ -1,27 +1,23 @@
 function HexagonalTiling(r) {
+  this.r     = r;
   this.polys = [];
+  this.sides = 6;
+  this.beta  = Math.PI/this.sides;
+  this.h6    = this.r*Math.cos(this.beta);
+  this.side  = this.r*Math.sin(this.beta);
+  this.w     = this.h6*2;
+  this.h     = this.r+this.side;
 
   this.buildCell = function(x, y) {
-    var p = new Polygon();
-
-    // rotate 360 degrees around the clock in 60 degree increments
-    var inc = 2 * Math.PI / 6;
-    for (var index = 0; index < 6; index++) {
-      // angular to cartesian
-      var θ = (index * inc) - inc / 2;
-      var vX = x + r * Math.cos(θ);
-      var vY = y + r * Math.sin(θ);
-      p.addVertex(vX, vY);
-    }
-    p.close();
+    var p = build_poly(x,y,this.r,this.sides) ;
     this.polys.push(p);
   }
 
   // http://www.redblobgames.com/grids/hexagons/
   this.buildGrid = function() {
-    var h = r * 2;
-    var w = (sqrt(3) / 2) * h;
-    var inc = 3 * (h / 4);
+    var h = this.h;
+    var w = this.w;
+    var inc = h;
     // TODO: get dimensions from somewhere
     var row = 0;
     for (var y = -h / 2; y < 400 + h/2; y += inc) {
