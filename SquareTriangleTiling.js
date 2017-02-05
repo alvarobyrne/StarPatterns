@@ -40,9 +40,7 @@ function SquareTriangleTiling(r) {
     var dim =500;
     var row = 0;
     for (var y = -h / 2; y < dim + h/2; y += inc) {
-      // TODO: be careful with this: w instead of w/2
       var startX = ((row % 2) == 0) ? -w : -w / 2;
-      // var startX = -w;
       for (var x = startX; x < dim; x += w) {
         this.buildCell(x, y);
       }
