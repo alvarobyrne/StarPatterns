@@ -15,7 +15,9 @@
     <script language="javascript" type="text/javascript" src="TriangleSquareTiling.js"></script>
     <script language="javascript" type="text/javascript" src="DodecaTriangleTiling.js"></script>
     <script language="javascript" type="text/javascript" src="HexaTriangleTiling.js"></script>
+    <script language="javascript" type="text/javascript" src="HexaTriangleTiling2.js"></script>
     <script language="javascript" type="text/javascript" src="SquareTriangleTiling.js"></script>
+    <script language="javascript" type="text/javascript" src="SquareTiling.js"></script>
 </head>
 
 <body>
@@ -29,6 +31,9 @@
         angle: <input id="angle" type="range" min="0" max="90" value="60">
         <br />
         tiling: <select id="tiling">
+            <option value="square">square</option>
+            <option value="hexa_triangle2">hexa_triangle2</option>
+            <option value="hexagonal">hexagonal</option>
             <option value="square_triangle">square_triangle</option>
             <option value="hexa_triangle">hexa_triangle</option>
             <option value="dodeca_triangle">dodeca_triangle</option>
@@ -36,8 +41,6 @@
             <option value="square_octagon">square_octagon</option>
             <option value="hexa_triangle_square">hexa_triangle_square</option>
             <option value="dodeca_hex_square">dodeca_hex_square</option>
-            <option value="hexagonal">hexagonal</option>
-            <option value="square">square</option>
         </select>
         <br />
         show grid: <input id="showGrid" type="checkbox" checked>

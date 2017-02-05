@@ -61,6 +61,12 @@ function triangleSquareTiling() {
 }
 
 function squareTiling() {
+  var square = new SquareTiling(50);
+  square.buildGrid();
+  polys = square.polys;
+}
+/*
+function squareTiling() {
   polys = [];
   var inc = 100;
   for (var x = 0; x < width; x += inc) {
@@ -75,7 +81,7 @@ function squareTiling() {
     }
   }
 }
-
+*/
 function dodecaHexSquareTiling(){
   var tiles = new DodecaHexaSquareTiling(50);
   tiles.buildGrid();
@@ -89,6 +95,11 @@ function dodecaTriangleTiling(){
 }
 function hexaTriangleTiling(){
   var tiles = new HexaTriangleTiling(70);
+  tiles.buildGrid();
+  polys = tiles.polys;
+}
+function hexaTriangleTiling2(){
+  var tiles = new HexaTriangleTiling2(70);
   tiles.buildGrid();
   polys = tiles.polys;
 }
@@ -127,11 +138,16 @@ function chooseTiling() {
     case "hexa_triangle":
       hexaTriangleTiling();
       break;
+    case "hexa_triangle2":
+      hexaTriangleTiling2();
+      break;
     case "square_triangle":
       squareTriangleTiling();
       break;
     default:
-      squareTriangleTiling();
+      hexaTriangleTiling2();
+      // hexTiling();
+      // squareTriangleTiling();
       // dodecaTriangleTiling();
       // triangleSquareTiling();
       // squareOctagonTiling();
