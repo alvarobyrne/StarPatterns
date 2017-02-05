@@ -92,6 +92,11 @@ function hexaTriangleTiling(){
   tiles.buildGrid();
   polys = tiles.polys;
 }
+function squareTriangleTiling(){
+  var tiles = new SquareTriangleTiling(70);
+  tiles.buildGrid();
+  polys = tiles.polys;
+}
 
 function chooseTiling() {
   switch (tilingTypeSelect.value()) {
@@ -122,8 +127,12 @@ function chooseTiling() {
     case "hexa_triangle":
       hexaTriangleTiling();
       break;
+    case "square_triangle":
+      squareTriangleTiling();
+      break;
     default:
-      dodecaTriangleTiling();
+      squareTriangleTiling();
+      // dodecaTriangleTiling();
       // triangleSquareTiling();
       // squareOctagonTiling();
       // hexTriangleSquareTiling();
