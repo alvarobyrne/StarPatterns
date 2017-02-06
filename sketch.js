@@ -13,6 +13,9 @@ var delta = 0;
 var deltaSlider;
 var angleSlider;
 var ratioSlider;
+var hankinMethod;
+hankinMethod="sine_law";
+hankinMethod="intersection";
 var tilingTypeSelect;
 var gridCheck;
 
@@ -25,12 +28,20 @@ function setup() {
   deltaSlider = select('#delta');
   angleSlider = select('#angle');
   ratioSlider = select('#ratio');
+  select('#intersection').mouseClicked(function (argument) {
+    hankinMethod ="intersection";
+  });
+  select('#sine_law').mouseClicked(function (argument) {
+    hankinMethod ="sine_law";
+  });
+  select('#ratio_method').mouseClicked(function (argument) {
+    hankinMethod ="ratio";
+  });
   tilingTypeSelect = select('#tiling');
   tilingTypeSelect.changed(chooseTiling);
   gridCheck = select('#showGrid');
   chooseTiling();
 }
-
 function draw() {
   background(50);
   angle = angleSlider.value();
