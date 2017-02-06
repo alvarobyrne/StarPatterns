@@ -6,14 +6,14 @@
 
 function Hankin(a, v) {
   this.a = a;
-  this.v = v;
+  this.v = v;//direction to where the arm points
   this.b = p5.Vector.add(a, v);
   this.end;
   this.prevD;
 
   this.show = function() {
     stroke(255);
-    strokeWeight(2);
+    strokeWeight(0.52);
     line(this.a.x, this.a.y, this.end.x, this.end.y);
     // fill(255);
     // ellipse(this.a.x, this.a.y, 8);
@@ -23,7 +23,8 @@ function Hankin(a, v) {
     // }
   }
 
-  this.findEnd = function(other) {
+  this.findEnd = function(other,poly) {
+    /*
     // line line intersection???
     // this.a, this.v  (P1, P2-P1)
     // other.a, other.v (P3, P4-P3)
@@ -56,9 +57,19 @@ function Hankin(a, v) {
         }
       }
     }
+    /*/
+    var alph = PI / 2 - PI / poly.sides; // tile corner half-angle
+    var l = poly.radius * Math.cos(alph); // tile half-base
+
+    var del = delta; // Hankin base offset
+    var theta = radians(angle);
+    var beta = PI - alph - theta; // Hankin intersection angle
+    var d = sin(-alph) / sin(beta) * (l + del); // Hankin length
+
+    this.end = p5.Vector.add(a, v.setMag(d));
 
 
-
+    //*/
   }
 
 }

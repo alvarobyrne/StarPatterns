@@ -36,20 +36,33 @@ function Edge(a, b) {
     v1.normalize();
     v2.normalize();
 
-
     v1.rotate(radians(-angle));
     v2.rotate(radians(angle));
 
+    /*
+    var ua=a.copy().lerp(this.center,ratio);
+    ellipse(this.center.x,this.center.y,2,2);
+    var ub=b.copy().lerp(this.center,ratio);
+    */
+   
+    // v1=p5.Vector.add(a,ua);
+    // ua.add(a);
+    // ub.add(b);
+    // 
+    // v2=p5.Vector.add(b,ub);
+    // ellipse(ua.x,ua.y,2,2);
+    // ellipse(ub.x,ub.y,2,2);
+    
     this.h1 = new Hankin(offset1, v1);
     this.h2 = new Hankin(offset2, v2);
 
   }
 
-  this.findEnds = function(edge) {
-    this.h1.findEnd(edge.h1);
-    this.h1.findEnd(edge.h2);
-    this.h2.findEnd(edge.h1);
-    this.h2.findEnd(edge.h2);
+  this.findEnds = function(edge,poly) {
+    this.h1.findEnd(edge.h1,poly);
+    this.h1.findEnd(edge.h2,poly);
+    this.h2.findEnd(edge.h1,poly);
+    this.h2.findEnd(edge.h2,poly);
   }
 
 

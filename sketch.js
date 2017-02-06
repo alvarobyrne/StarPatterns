@@ -12,6 +12,7 @@ var delta = 0;
 
 var deltaSlider;
 var angleSlider;
+var ratioSlider;
 var tilingTypeSelect;
 var gridCheck;
 
@@ -23,6 +24,7 @@ function setup() {
   background(51);
   deltaSlider = select('#delta');
   angleSlider = select('#angle');
+  ratioSlider = select('#ratio');
   tilingTypeSelect = select('#tiling');
   tilingTypeSelect.changed(chooseTiling);
   gridCheck = select('#showGrid');
@@ -33,6 +35,7 @@ function draw() {
   background(50);
   angle = angleSlider.value();
   delta = deltaSlider.value();
+  ratio = ratioSlider.value();
   for (var i = 0; i < polys.length; i++) {
     polys[i].hankin();
     polys[i].show();
@@ -158,7 +161,7 @@ function chooseTiling() {
   }
 }
 function build_poly(x,y,r,sides,init_angle) {
-    var p = new Polygon();
+    var p = new Polygon(x,y,sides,r);
     if(!init_angle)init_angle = 0;
     // rotate 360 degrees around the clock in 60 degree increments
     var inc = 2 * Math.PI / sides;
